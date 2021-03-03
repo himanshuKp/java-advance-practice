@@ -17,10 +17,18 @@ public class Employee implements Comparable<Employee>{
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public int compareTo(Employee o) {
-        int id1 = this.id;
-        int id2 = o.id;
+        int id1 = this.getId();
+        int id2 = o.getId();
 
         if(id1 < id2){
             return -1;

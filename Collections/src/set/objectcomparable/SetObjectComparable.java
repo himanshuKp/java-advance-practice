@@ -13,11 +13,15 @@ import java.util.TreeSet;
 
 public class SetObjectComparable {
     public static void main(String[] args) {
-        Set<Employee> employeeSet = new TreeSet<>();
+//        Set<Employee> employeeSet = new TreeSet<>();
+        Set<Employee> employeeSet = new TreeSet<>(new EmployeeNameComparator());
         employeeSet.add(new Employee(1,"himanshu"));
         employeeSet.add(new Employee(4, "ravi"));
         employeeSet.add(new Employee(2,"deepti"));
 
         System.out.println(employeeSet);
+//        for (Employee employee: employeeSet){
+//            System.out.println(employee.getName());
+//        }
     }
 }
