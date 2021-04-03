@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/DSA/DSA.iml" filepath="$PROJECT_DIR$/DSA/DSA.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExecutorFramework/ExecutorFramework.iml" filepath="$PROJECT_DIR$/ExecutorFramework/ExecutorFramework.iml" />
       <module fileurl="file://$PROJECT_DIR$/InnerClasses/InnerClasses.iml" filepath="$PROJECT_DIR$/InnerClasses/InnerClasses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Internationalization/Internationalization.iml" filepath="$PROJECT_DIR$/Internationalization/Internationalization.iml" />
       <module fileurl="file://$PROJECT_DIR$/Strings/Strings.iml" filepath="$PROJECT_DIR$/Strings/Strings.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-advance-practice.iml" filepath="$PROJECT_DIR$/.idea/java-advance-practice.iml" />
     </modules>
