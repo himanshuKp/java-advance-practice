@@ -14,8 +14,10 @@ import java.util.Locale;
 public class NumberFormatMethods {
     public static void main(String[] args) {
         Double d = 1234567.2344;
-        Long l = 12356789l;
-        NumberFormat nf = NumberFormat.getInstance(Locale.FRANCE);
-        System.out.println(nf.format(l));
+//        Long l = 12356789l;
+        NumberFormat nf = NumberFormat.getInstance();
+//        nf.setMinimumFractionDigits(4);
+        nf.setMaximumFractionDigits(2);
+        System.out.println(nf.format(d));
     }
 }
