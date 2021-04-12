@@ -64,6 +64,23 @@ public class DoublyLinkedList {
         return removedHead.data;
     }
 
+    public String removeTail(){
+        Node removedTail = this.tail;
+
+        if(removedTail == null){
+            return null;
+        }
+        this.tail = removedTail.getPreviousNode();
+
+        if(this.tail != null){
+            this.tail.setNextNode(null);
+        }
+        if(removedTail == this.head){
+            removeHead();
+        }
+        return removedTail.data;
+    }
+
     public String printList(){
         Node currentNode = this.head;
         String output = "<head> ";
