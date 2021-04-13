@@ -19,7 +19,27 @@ public class DoublyLinkedList {
     }
 
     public static void main(String[] args) {
+        DoublyLinkedList subway = new DoublyLinkedList();
+        subway.addToHead("Times Square");
+        subway.addToHead("Grand Central");
+        subway.addToHead("Central Park");
 
+        subway.printList();
+
+        subway.addToTail("Penn Station");
+        subway.addToTail("Wall Street");
+        subway.addToTail("Brooklyn Bridge");
+
+        subway.printList();
+
+        subway.removeHead();
+        subway.removeTail();
+
+        subway.printList();
+
+        subway.removeByData("Times Square");
+
+        subway.printList();
     }
 
     public void addToHead(String data){
@@ -79,6 +99,32 @@ public class DoublyLinkedList {
             removeHead();
         }
         return removedTail.data;
+    }
+
+    public Node removeByData(String data){
+        Node removedNode = null;
+        Node currentNode = this.head;
+        while (currentNode!=null){
+            if(currentNode.data == data){
+                removedNode = currentNode;
+                break;
+            }
+            currentNode = currentNode.getNextNode();
+        }
+        if(removedNode == null){
+            return null;
+        }
+        if(removedNode == this.head){
+            removeHead();
+        }else if(removedNode == this.tail){
+            removeTail();
+        }else {
+            Node nextNode = removedNode.getNextNode();
+            Node previousNode = removedNode.getPreviousNode();
+            nextNode.setPreviousNode(previousNode);
+            previousNode.setNextNode(nextNode);
+        }
+        return removedNode;
     }
 
     public String printList(){
