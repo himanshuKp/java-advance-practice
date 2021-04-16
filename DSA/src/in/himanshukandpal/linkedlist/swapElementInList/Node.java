@@ -9,10 +9,10 @@
 package in.himanshukandpal.linkedlist.swapElementInList;
 
 public class Node {
-    private int data;
+    public Integer data;
     private Node next;
 
-    public Node(int data) {
+    public Node(Integer data) {
         this.data = data;
         this.next = null;
     }
@@ -23,5 +23,13 @@ public class Node {
 
     public void setNext(Node next) {
         this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+                ", next=" + next +
+                '}';
     }
 }
