@@ -41,22 +41,33 @@ public class Queue {
         }
     }
 
-    public void enqueue(String data){
-        this.queue.addToTail(data);
-        this.size += 1;
-
-        System.out.println("Added "+data+"! Queue size is now "+this.size);
+    public void enqueue(String data) {
+        if(this.size < maxSize){
+            this.queue.addToTail(data);
+            this.size++;
+            System.out.println("Added " + data + "! Queue size is now " + this.size);
+        } else {
+            throw new Error("Queue is full!");
+        }
     }
 
-    public String dequeue(){
-        String data = this.queue.removeHead();
-        this.size -= 1;
-        System.out.println("Removed "+data+"! Queue size is now "+this.size);
-        return data;
+    public String dequeue() {
+        if (!this.isEmpty()) {
+            String data = this.queue.removeHead();
+            this.size--;
+            System.out.println("Removed " + data + "! Queue size is now " + this.size);
+            return data;
+        } else {
+            throw new Error("Queue is empty!");
+        }
     }
 
-    public String peek(){
-        return this.queue.head.data;
+    public String peek() {
+        if (this.isEmpty()) {
+            return null;
+        } else {
+            return this.queue.head.data;
+        }
     }
 
     public static void main(String[] args) {
@@ -68,11 +79,31 @@ public class Queue {
 //        smoothieOrders.dequeue();
 //        System.out.println("All orders are complete!");
 
-        Queue queueOne = new Queue(25);
-        Queue queueTwo = new Queue(0);
-        System.out.println("queueOne has space for more nodes: " + queueOne.hasSpace());
-        System.out.println("queueTwo has space for more nodes: " + queueTwo.hasSpace());
-        System.out.println("queueOne is empty: " + queueOne.isEmpty());
-        System.out.println("queueTwo is empty: " + queueTwo.isEmpty());
+//        Queue queueOne = new Queue(25);
+//        Queue queueTwo = new Queue(0);
+//        System.out.println("queueOne has space for more nodes: " + queueOne.hasSpace());
+//        System.out.println("queueTwo has space for more nodes: " + queueTwo.hasSpace());
+//        System.out.println("queueOne is empty: " + queueOne.isEmpty());
+//        System.out.println("queueTwo is empty: " + queueTwo.isEmpty());
+
+//        Queue smoothieOrders = new Queue();
+//        smoothieOrders.enqueue("strawberry banana");
+//        smoothieOrders.enqueue("chocolate peanut butter");
+//        smoothieOrders.enqueue("Putter");
+//
+//        smoothieOrders.dequeue();
+//        smoothieOrders.dequeue();
+//        smoothieOrders.dequeue();
+//        smoothieOrders.dequeue();
+
+        Queue boundedQueue = new Queue(3);
+        boundedQueue.enqueue("latte");
+        boundedQueue.enqueue("latte");
+        boundedQueue.enqueue("latte");
+        boundedQueue.enqueue("latte");
+        boundedQueue.dequeue();
+        boundedQueue.dequeue();
+        boundedQueue.dequeue();
+        boundedQueue.dequeue();
     }
 }
