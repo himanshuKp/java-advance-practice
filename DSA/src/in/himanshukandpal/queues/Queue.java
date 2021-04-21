@@ -31,11 +31,24 @@ public class Queue {
         System.out.println("Added "+data+"! Queue size is now "+this.size);
     }
 
+    public String dequeue(){
+        String data = this.queue.removeHead();
+        this.size -= 1;
+        System.out.println("Removed "+data+"! Queue size is now "+this.size);
+        return data;
+    }
+
+    public String peek(){
+        return this.queue.head.data;
+    }
+
     public static void main(String[] args) {
-        Queue coffeeOrder = new Queue();
-        System.out.println("coffeeOrder queue has " + coffeeOrder.size + " orders.");
-        coffeeOrder.enqueue("latte");
-        coffeeOrder.enqueue("espresso");
-        coffeeOrder.enqueue("cappuccino");
+        Queue smoothieOrders = new Queue();
+        smoothieOrders.enqueue("strawberry banana");
+        smoothieOrders.enqueue("chocolate peanut butter");
+        System.out.println("Blending the smoothies...");
+        smoothieOrders.dequeue();
+        smoothieOrders.dequeue();
+        System.out.println("All orders are complete!");
     }
 }
