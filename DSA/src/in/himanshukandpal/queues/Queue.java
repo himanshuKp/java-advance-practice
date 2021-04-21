@@ -24,6 +24,23 @@ public class Queue {
         this.maxSize = defaultMaxSize;
     }
 
+    public boolean hasSpace(){
+        if(this.size < maxSize){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Define isEmpty() below
+    public boolean isEmpty(){
+        if(this.size == 0 ){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void enqueue(String data){
         this.queue.addToTail(data);
         this.size += 1;
@@ -43,12 +60,19 @@ public class Queue {
     }
 
     public static void main(String[] args) {
-        Queue smoothieOrders = new Queue();
-        smoothieOrders.enqueue("strawberry banana");
-        smoothieOrders.enqueue("chocolate peanut butter");
-        System.out.println("Blending the smoothies...");
-        smoothieOrders.dequeue();
-        smoothieOrders.dequeue();
-        System.out.println("All orders are complete!");
+//        Queue smoothieOrders = new Queue();
+//        smoothieOrders.enqueue("strawberry banana");
+//        smoothieOrders.enqueue("chocolate peanut butter");
+//        System.out.println("Blending the smoothies...");
+//        smoothieOrders.dequeue();
+//        smoothieOrders.dequeue();
+//        System.out.println("All orders are complete!");
+
+        Queue queueOne = new Queue(25);
+        Queue queueTwo = new Queue(0);
+        System.out.println("queueOne has space for more nodes: " + queueOne.hasSpace());
+        System.out.println("queueTwo has space for more nodes: " + queueTwo.hasSpace());
+        System.out.println("queueOne is empty: " + queueOne.isEmpty());
+        System.out.println("queueTwo is empty: " + queueTwo.isEmpty());
     }
 }
