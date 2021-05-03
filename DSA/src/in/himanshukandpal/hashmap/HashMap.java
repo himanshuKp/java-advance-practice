@@ -17,8 +17,8 @@ public class HashMap {
 
     public static void main(String[] args) {
         HashMap newHashMap = new HashMap(3);
-        System.out.println(newHashMap.hash("car"));
-        System.out.println(newHashMap.hash("car"));
+        newHashMap.assign("favoriteColor","blue");
+        System.out.println(newHashMap.retrieve("favoriteColor"));
     }
 
     public int hash(String key){
@@ -28,5 +28,15 @@ public class HashMap {
         }
         hashCode = hashCode % this.hashMap.length;
         return hashCode;
+    }
+
+    public void assign(String key, String value){
+        int arrayIndex = this.hash(key);
+        this.hashMap[arrayIndex] = value;
+    }
+
+    public String retrieve(String key){
+        int arrayIndex = this.hash(key);
+        return this.hashMap[arrayIndex];
     }
 }
