@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/InnerClasses/InnerClasses.iml" filepath="$PROJECT_DIR$/InnerClasses/InnerClasses.iml" />
       <module fileurl="file://$PROJECT_DIR$/Internationalization/Internationalization.iml" filepath="$PROJECT_DIR$/Internationalization/Internationalization.iml" />
       <module fileurl="file://$PROJECT_DIR$/Strings/Strings.iml" filepath="$PROJECT_DIR$/Strings/Strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basics/basics.iml" filepath="$PROJECT_DIR$/basics/basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-advance-practice.iml" filepath="$PROJECT_DIR$/.idea/java-advance-practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/java9Features/java9Features.iml" filepath="$PROJECT_DIR$/java9Features/java9Features.iml" />
     </modules>
