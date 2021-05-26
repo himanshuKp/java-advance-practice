@@ -24,8 +24,17 @@ public class ClassExample {
     }
 
     public static void main(String[] args) {
-        ClassExample example = new ClassExample();
-        example.getFour();
-        example.getSix();
+//        ClassExample example = new ClassExample();
+//        example.getFour();
+//        example.getSix();
+
+        Test ob1 = new Test(1);
+        Test ob2 = new Test(1);
+        Test ob3 = ob1;
+
+        System.out.println(ob1 == ob2);
+        System.out.println(ob1.equals(ob2));
+        System.out.println(ob1==ob3);
+        System.out.println(ob1.equals(ob3));
     }
 }
