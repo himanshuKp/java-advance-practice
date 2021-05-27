@@ -24,17 +24,21 @@ public class WrapperClasses {
 //        String concat = str1.concat("value2");
 //        System.out.println(concat);
 
-        String str1 = "testing";
-        if (str1 instanceof String){
-            System.out.println("true");
-        } else {
-            System.out.println("false");
-        }
+//        String str1 = "testing";
+//        if (str1 instanceof String){
+//            System.out.println("true");
+//        } else {
+//            System.out.println("false");
+//        }
+//
+//        if (str1 instanceof Object){
+//            System.out.println("true");
+//        } else {
+//            System.out.println("false");
+//        }
 
-        if (str1 instanceof Object){
-            System.out.println("true");
-        } else {
-            System.out.println("false");
+        for (int i = 0,j=0; i<10; i++,j--) {
+            System.out.println(j);
         }
 
     }
