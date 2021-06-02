@@ -8,6 +8,9 @@
 
 package in.himanshukandpal.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Tree {
     public TreeNode root;
 
@@ -30,6 +33,24 @@ public class Tree {
         }
     }
 
+    public void depthFirstTraversal(TreeNode current){
+        System.out.print(current.data + " ");
+        for (TreeNode child: current.children){
+            depthFirstTraversal(child);
+        }
+    }
+
+    public void breadthFirstTraversal(){
+        TreeNode current = this.root;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(current);
+        while (!queue.isEmpty()){
+            current = queue.poll();
+            System.out.print(current.data + " ");
+            queue.addAll(current.children);
+        }
+    }
+
     public static void main(String[] args) {
         TreeNode treeRoot = new TreeNode("S");
         TreeNode child1 = new TreeNode("N");
@@ -46,5 +67,8 @@ public class Tree {
 
         // Print tree
         letters.print();
+
+        letters.breadthFirstTraversal();
+
     }
 }
