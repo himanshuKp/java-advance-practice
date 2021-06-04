@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/design pattern/design pattern.iml" filepath="$PROJECT_DIR$/design pattern/design pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-advance-practice.iml" filepath="$PROJECT_DIR$/.idea/java-advance-practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/java9Features/java9Features.iml" filepath="$PROJECT_DIR$/java9Features/java9Features.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multithread/multithread.iml" filepath="$PROJECT_DIR$/multithread/multithread.iml" />
     </modules>
   </component>
 </project>
