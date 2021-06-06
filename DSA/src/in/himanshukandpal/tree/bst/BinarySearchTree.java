@@ -58,6 +58,16 @@ public class BinarySearchTree {
         }
     }
 
+    public void depthFirstTraversal(){
+        if(this.left != null){
+            this.left.depthFirstTraversal();
+        }
+        System.out.println(this.value);
+        if (this.right != null){
+            this.right.depthFirstTraversal();
+        }
+    }
+
     public static void main(String[] args) {
         BinarySearchTree root = new BinarySearchTree(100);
 
@@ -69,5 +79,7 @@ public class BinarySearchTree {
         // Get nodes by value below
         System.out.println(root.getNodeByValue(75));
         System.out.println(root.getNodeByValue(55));
+
+        root.depthFirstTraversal();
     }
 }
