@@ -41,10 +41,56 @@ public class MinHeap {
         }
     }
 
+    private void heapify() {
+        int current = 1;
+        int leftChild = this.getLeft(current);
+        int rightChild = this.getRight(current);
+        while (this.canSwap(current, leftChild, rightChild)) {
+            if(this.exists(leftChild) && this.exists(rightChild)){
+                if(this.heap.get(leftChild) < this.heap.get(rightChild)){
+                    this.swap(current, leftChild);
+                    current = leftChild;
+                } else {
+                    this.swap(current, rightChild);
+                    current = rightChild;
+                }
+            } else {
+                this.swap(current, leftChild);
+                current = leftChild;
+            }
+
+            leftChild = this.getLeft(current);
+            rightChild = this.getRight(current);
+
+        }
+    }
+
+    public int popMin(){
+        if (this.size == 0){
+            throw new Error("Heap is empty!");
+        }
+        System.out.println("Swap min element "+this.heap.get(1)+ " and last element "+this.heap.get(this.size));
+        this.swap(1, this.size);
+        int min = this.heap.remove(this.size);
+        System.out.println("Removed from the heap: "+min);
+        System.out.println(this.heap);
+        this.size--;
+        return min;
+    }
+
     private void swap(int current, int parent) {
         int temp = this.heap.get(parent);
         this.heap.set(parent, this.heap.get(current));
         this.heap.set(current, temp);
+    }
+
+    private boolean exists(int index) {
+        return index <= this.size;
+    }
+
+    private boolean canSwap(int current, int leftChild, int rightChild) {
+        return (this.exists(leftChild) && (this.heap.get(current) > this.heap.get(leftChild)))
+                || (this.exists(rightChild) && (this.heap.get(current) > this.heap.get(rightChild)));
     }
 
     public int getParent(int value){
@@ -59,42 +105,21 @@ public class MinHeap {
         return (value * 2) + 1;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[]args) {
         MinHeap minHeap = new MinHeap();
-
-        Random random = new Random();
+        Random r = new Random();
         for (int i = 0; i < 6; i++) {
-            System.out.println("-".repeat(10));
-            minHeap.add(random.nextInt(40));
+            int int_random = r.nextInt(40);
+            minHeap.add(int_random);
         }
+        System.out.println("--------------");
+        System.out.println("BUBBLED UP: " + minHeap.heap);
 
-        System.out.println("-".repeat(10));
-        System.out.println("Building up: "+minHeap.heap);
-       /* minHeap.add(10);
-        minHeap.add(13);
-        minHeap.add(21);
-        minHeap.add(61);
-        minHeap.add(22);
-        minHeap.add(23);
-        minHeap.add(99);
-
-        System.out.println("Heap Tree: "+minHeap.heap);
-
-//        display parent, left and right child indices of currentIndex
-        int currentIndex = 3;
-        int parentIndex = minHeap.getParent(currentIndex);
-        int leftChild = minHeap.getLeft(currentIndex);
-        int rightChild = minHeap.getRight(currentIndex);
-        System.out.println("----------");
-        System.out.println("Let's look at index: "+currentIndex);
-        System.out.println("Parent index: "+parentIndex);
-        System.out.println("Left index: "+leftChild);
-        System.out.println("Right index: "+rightChild);
-
-//        display the parent, left and right child value
-        System.out.println("-".repeat(10));
-        System.out.println("Parent value: "+minHeap.heap.get(parentIndex));
-        System.out.println("Left value: "+minHeap.heap.get(leftChild));
-        System.out.println("Right value: "+minHeap.heap.get(rightChild));*/
+        // Remove minimum value multiple times
+        for (int i = 0; i < 6; i++) {
+            System.out.println("--------------");
+            minHeap.popMin();
+            System.out.println("HEAPIFIED: " + minHeap.heap);
+        }
     }
 }
