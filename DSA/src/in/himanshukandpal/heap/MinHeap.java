@@ -9,6 +9,7 @@
 package in.himanshukandpal.heap;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MinHeap {
 
@@ -31,7 +32,19 @@ public class MinHeap {
     }
 
     private void bubbleUp() {
-        System.out.println("Restoring heap condition...");
+        int current = this.size;
+        while (current > 1 && (this.heap.get(current) < this.heap.get(this.getParent(current)))){
+            System.out.println("Swap Index: "+current+ " with parent "+this.getParent(current));
+            System.out.println(this.heap);
+            this.swap(current, this.getParent(current));
+            current = this.getParent(current);
+        }
+    }
+
+    private void swap(int current, int parent) {
+        int temp = this.heap.get(parent);
+        this.heap.set(parent, this.heap.get(current));
+        this.heap.set(current, temp);
     }
 
     public int getParent(int value){
@@ -49,7 +62,15 @@ public class MinHeap {
     public static void main(String[] args) {
         MinHeap minHeap = new MinHeap();
 
-        minHeap.add(10);
+        Random random = new Random();
+        for (int i = 0; i < 6; i++) {
+            System.out.println("-".repeat(10));
+            minHeap.add(random.nextInt(40));
+        }
+
+        System.out.println("-".repeat(10));
+        System.out.println("Building up: "+minHeap.heap);
+       /* minHeap.add(10);
         minHeap.add(13);
         minHeap.add(21);
         minHeap.add(61);
@@ -74,6 +95,6 @@ public class MinHeap {
         System.out.println("-".repeat(10));
         System.out.println("Parent value: "+minHeap.heap.get(parentIndex));
         System.out.println("Left value: "+minHeap.heap.get(leftChild));
-        System.out.println("Right value: "+minHeap.heap.get(rightChild));
+        System.out.println("Right value: "+minHeap.heap.get(rightChild));*/
     }
 }
