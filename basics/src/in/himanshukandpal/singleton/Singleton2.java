@@ -9,9 +9,6 @@
 package in.himanshukandpal.singleton;
 
 public class Singleton2 {
-//    static variable single_instance of type singleton
-    private static Singleton2 single_instance = null;
-
 //    variable of type string
     public String s;
 
@@ -20,13 +17,14 @@ public class Singleton2 {
         s = "Hello I am a string part of singleton class.";
     }
 
+//    inner class to provide instance of class
+    private static class BillPughSingleton {
+        private static final Singleton2 INSTANCE = new Singleton2();
+    }
+
 //    static method to create instance of singleton class
     public static Singleton2 getInstance(){
-//  to ensure only one instance is created
-        if (single_instance == null){
-            single_instance = new Singleton2();
-        }
-        return single_instance;
+        return BillPughSingleton.INSTANCE;
     }
 }
 
@@ -53,6 +51,5 @@ class Driver2 {
         System.out.println("String from x is: "+x.s);
         System.out.println("String from y is: "+y.s);
         System.out.println("String from z is: "+z.s+"\n");
-
     }
 }
