@@ -11,7 +11,7 @@ package in.himanshukandpal.sorting.bubblesort1;
 import java.util.Arrays;
 
 public class BubbleSort {
-    public static int[] sorting(int[] input_array) {
+    public static void sorting(int[] input_array) {
         boolean swapping = true;
         while (swapping){
             swapping = false;
@@ -25,7 +25,6 @@ public class BubbleSort {
                 }
             }
         }
-        return input_array;
     }
 }
 
