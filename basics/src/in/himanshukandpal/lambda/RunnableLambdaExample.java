@@ -16,9 +16,9 @@ public class RunnableLambdaExample {
                 System.out.println("Runnable anonymous method.");
             }
         });
-        t.run();
+        t.start();
 
         Thread t1 = new Thread(()-> System.out.println("Runnable lambda method."));
-        t1.run();
+        t1.start();
     }
 }
