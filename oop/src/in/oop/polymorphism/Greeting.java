@@ -8,6 +8,7 @@
 
 package in.oop.polymorphism;
 
+@FunctionalInterface
 public interface Greeting {
     void perform();
 }
