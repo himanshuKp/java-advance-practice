@@ -11,7 +11,7 @@ package in.himanshukandpal.immutable.mark2;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Student {
+public final class Student {
     private final String name;
     private final int regNo;
     private final Map<String, String> metaData;
