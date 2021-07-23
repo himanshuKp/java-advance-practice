@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Unit1ExampleOOP {
@@ -33,13 +34,13 @@ public class Unit1ExampleOOP {
 
 //        create a method that prints all people that have last name beginning with c
         System.out.println("\nPrints persons whose last name starts with c.");
-        printConditionally(people, p -> p.getLastName().startsWith("C"));
+        printConditionally(people, p -> p.getLastName().startsWith("C"), consumer -> System.out.println(consumer.getFirstName()));
     }
 
-    private static void printConditionally(List<Person> people, Predicate<Person> c) {
+    private static void printConditionally(List<Person> people, Predicate<Person> c, Consumer<Person> consumer) {
         for (Person p: people){
             if (c.test(p)) {
-                System.out.println(p);
+                consumer.accept(p);
             }
         }
     }
