@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Unit1ExampleOOP {
     public static void main(String[] args) {
@@ -35,7 +36,7 @@ public class Unit1ExampleOOP {
         printConditionally(people, p -> p.getLastName().startsWith("C"));
     }
 
-    private static void printConditionally(List<Person> people, Condition c) {
+    private static void printConditionally(List<Person> people, Predicate<Person> c) {
         for (Person p: people){
             if (c.test(p)) {
                 System.out.println(p);
@@ -48,8 +49,4 @@ public class Unit1ExampleOOP {
             System.out.println(person);
         }
     }
-}
-
-interface Condition {
-    boolean test(Person p);
 }
