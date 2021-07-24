@@ -34,30 +34,22 @@ public class SerialExample {
             object.age = 30; //will not be changed during deserialization
             object.a = 3;   //will be 0 during desrialization
             Emp.b = 4;  //changed during deserialization
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        Emp object1 = null;
 
         try{
             FileInputStream file = new FileInputStream(fileName);
             ObjectInputStream in = new ObjectInputStream(file);
 
 //            method for deserialzation of object
-            object1 = (Emp) in.readObject();
+            Emp object1 = (Emp) in.readObject();
 
             in.close();
-            file.close();;
+            file.close();
             System.out.println("Object has been deserialized.");
             printObject(object1);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
