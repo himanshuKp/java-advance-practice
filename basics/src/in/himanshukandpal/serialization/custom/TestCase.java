@@ -31,8 +31,6 @@ public class TestCase implements Serializable {
 
 //        writing encrypted password to file
         oos.writeObject(e_password);
-
-//        oos.writeUTF(e_password);
     }
 
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
