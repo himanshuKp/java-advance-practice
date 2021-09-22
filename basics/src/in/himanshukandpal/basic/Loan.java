@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2021.
  * Developer: Himanshu Kandpal
- * Date: 20/09/21, 5:06 PM
+ * Date: 20/09/21, 8:35 PM
  * Email: hk@himanshukandpal.in
  * Github: https://github.com/himanshuKp
  */
@@ -14,7 +14,17 @@ public class Loan {
     float interestRate;
     String accountNo;
 
+    public Loan(int tenure, float interestRate) {
+        this.tenure = tenure;
+        this.interestRate = interestRate;
+    }
+
     public double calculateEMI(){
+        double simpleInterest = (principal*interestRate*tenure)/100;
+        return (simpleInterest+principal)/tenure;
+    }
+
+    public double calculateEMI(double principal){
         double simpleInterest = (principal*interestRate*tenure)/100;
         return (simpleInterest+principal)/tenure;
     }
